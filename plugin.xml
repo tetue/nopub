@@ -1,0 +1,21 @@
+<plugin>
+<nom>No pub !</nom>
+<prefix>nopub</prefix>
+<icon>icon/nopub.png</icon>
+
+<version>0.1.0</version>
+<etat>stable</etat>
+<categorie>divers</categorie>
+
+<slogan>Pas de pub s'il vous pla&icirc;t !</slogan>
+<description>Pas de pub s'il vous pla&icirc;t !</description>
+<auteur>Cuisine-libre.fr - 2009</auteur>
+<auteur>Sur une idée de romy.tetue.net</auteur>
+
+<options>nopub_options.php</options>
+<pipeline>
+	<nom>insert_head_css</nom>
+	<inclure>nopub_pipelines.php</inclure>
+</pipeline>
+<necessite id="SPIP" version="[1.9.1;2.1.99]" />
+</plugin>
