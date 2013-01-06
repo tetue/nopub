@@ -57,7 +57,7 @@ function balise_PUB_dist($p){
  * Afficher un bloc de pub avec les div, les classes englobantes
  * + un width+height pour eviter le reflow (webperf)
  * + un lien pour desactiver la pub
- * 
+ *
  * @param string $fond
  * @return string
  */
