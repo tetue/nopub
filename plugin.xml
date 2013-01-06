@@ -1,21 +1,21 @@
 <plugin>
-<nom>No pub !</nom>
-<prefix>nopub</prefix>
-<icon>icon/nopub.png</icon>
+	<nom>Fair pub</nom>
+	<prefix>fairpub</prefix>
+	<icon>icon/fairpub.png</icon>
 
-<version>0.1.0</version>
-<etat>stable</etat>
-<categorie>divers</categorie>
+	<version>0.1.0</version>
+	<etat>stable</etat>
+	<categorie>divers</categorie>
 
-<slogan>Pas de pub s'il vous pla&icirc;t !</slogan>
-<description>Pas de pub s'il vous pla&icirc;t !</description>
-<auteur>Cuisine-libre.fr - 2009</auteur>
-<auteur>Sur une idée de romy.tetue.net</auteur>
+	<slogan>Pas de pub s'il vous pla&icirc;t !</slogan>
+	<description>Inserer une publicit&eacute; qui respecte l'utilisateur :
+	- uniquement si il vient d'un moteur de recherche
+	- si il n'est pas identifié
+	Un lien "Pas de pub s'il vous pla&icirc;t !" permet de desactiver la publicit&eacute; pour ne plus la voir.</description>
+	<auteur>Cedric</auteur>
+	<auteur>Sur une idée de romy.tetue.net</auteur>
 
-<options>nopub_options.php</options>
-<pipeline>
-	<nom>insert_head_css</nom>
-	<inclure>nopub_pipelines.php</inclure>
-</pipeline>
-<necessite id="SPIP" version="[1.9.1;2.1.99]" />
+	<options>fairpub_options.php</options>
+	<fonctions>fairpub_fonctions.php</fonctions>
+	<necessite id="SPIP" version="[1.9.1;3.0.99]" />
 </plugin>
