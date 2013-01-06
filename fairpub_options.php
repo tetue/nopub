@@ -14,6 +14,10 @@
  * La pub doit etre inseree par une balise #PUB{identifiant-wwwxhhh}
  * ou pub/identifiant-wwwxhhh.html est le snippet de code a inserer,
  * et www et hhh la largeur et la hauteur de la pub
+ *
+ * Un titre peut etre fourni optionnellement en second argument :
+ * [(#PUB{demo-160x600,'<span class="titre">(pub)</span>'})]
+ * 
  */
 
 $GLOBALS['var_pub'] = false;
@@ -42,13 +46,17 @@ else {
 
 /**
  * #PUB{mypub-250x250}
+ * #PUB{mypub-250x250,'<h2>Publicite</h2>'}
+ * (titre optionnel en second argument)
+ *
  * @param object $p
  * @return mixed
  */
 function balise_PUB_dist($p){
 	$_fond = interprete_argument_balise(1,$p);
+	$_titre = interprete_argument_balise(2,$p);
 	$p->code = "'<'.'?php if (\$GLOBALS[\'var_pub\']) { ?'.'>'";
-	$p->code .= ".fairpub_affiche_pub($_fond)";
+	$p->code .= ".fairpub_affiche_pub($_fond, $_titre)";
 	$p->code .= ".'<'.'?php } ?'.'>'";
 	$p->interdire_scripts = false;
 	return $p;
@@ -62,7 +70,7 @@ function balise_PUB_dist($p){
  * @param string $fond
  * @return string
  */
-function fairpub_affiche_pub($fond){
+function fairpub_affiche_pub($fond, $titre=""){
 	$url_nopub = generer_url_action("nopub","",false,true);
 	$width = $height = "";
 	if (preg_match(",(\d+)(?:x(\d+))?$,",$fond,$m)){
@@ -76,7 +84,7 @@ function fairpub_affiche_pub($fond){
 	if ($height) {$class.=" pub-h$height";$inner_style .= "height:{$height}px;";}
 	if ($inner_style) $inner_style = " style=\"$inner_style\"";
 
-	$html = "<div class=\"$class\"><div class=\"pub-inner\"$inner_style>"
+	$html = "<div class=\"$class\">$titre<div class=\"pub-inner\"$inner_style>"
 		. recuperer_fond("pub/$fond")
 		. "</div>"
 		. "<small class=\"pub-link-nopub\"><a href=\"#\" onclick=\"jQuery('.pub').fadeOut();jQuery.get('$url_nopub');return false;\">"
