@@ -1,6 +1,8 @@
 <?php
 /**
- * Gestion de la publicite
+ * Plugin FairPub
+ * Gestion de la publicite respectueuse
+ *
  * N'afficher la pub que :
  * - si l'utilisateur vient d'un moteur de recherche connu (ou si ?var_pub=1 dans l'url : test-feature)
  * - et si l'utilisateur n'est pas identifie
@@ -35,4 +37,51 @@ else {
 		setcookie('var_pub','',time()-1000);
 		unset($_COOKIE['var_pub']);
 	}
+}
+
+/**
+ * #PUB{mypub-250x250}
+ * @param object $p
+ * @return mixed
+ */
+function balise_PUB_dist($p){
+	$_fond = interprete_argument_balise(1,$p);
+	$p->code = "'<'.'?php if (\$GLOBALS[\'var_pub\']) { ?'.'>'";
+	$p->code .= ".fairpub_affiche_pub($_fond)";
+	$p->code .= ".'<'.'?php } ?'.'>'";
+	$p->interdire_scripts = false;
+	return $p;
+}
+
+/**
+ * Afficher un bloc de pub avec les div, les classes englobantes
+ * + un width+height pour eviter le reflow (webperf)
+ * + un lien pour desactiver la pub
+ * 
+ * @param string $fond
+ * @return string
+ */
+function fairpub_affiche_pub($fond){
+	$url_nopub = generer_url_action("nopub","",false,true);
+	$width = $height = "";
+	if (preg_match(",(\d+)(?:x(\d+))?$,",$fond,$m)){
+		$width = $m[1];
+		$height = $m[2];
+	}
+
+	$class = "pub pub-$fond";
+	$inner_style = "";
+	if ($width) {$class.=" pub-w$width";$inner_style .= "width:{$width}px;";}
+	if ($height) {$class.=" pub-h$height";$inner_style .= "height:{$height}px;";}
+	if ($inner_style) $inner_style = " style=\"$inner_style\"";
+
+	$html = "<div class=\"$class\"><div class=\"pub-inner\"$inner_style>"
+		. recuperer_fond("pub/$fond")
+		. "</div>"
+		. "<small class=\"pub-link-nopub\"><a href=\"#\" onclick=\"jQuery('.pub').fadeOut();jQuery.get('$url_nopub');return false;\">"
+		. _T('fairpub:info_pas_de_pub_svp')
+	  . "</a></small>"
+		. "</div>";
+
+	return $html;
 }
