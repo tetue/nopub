@@ -1,7 +1,7 @@
 <?php
-/*
- * Plugin xxx
- * (c) 2009 xxx
+/**
+ * Plugin FairPub
+ * Gestion de la publicite respectueuse
  * Distribue sous licence GPL
  *
  */

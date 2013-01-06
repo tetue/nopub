@@ -2,6 +2,7 @@
 /**
  * Plugin FairPub
  * Gestion de la publicite respectueuse
+ * Distribue sous licence GPL
  *
  * N'afficher la pub que :
  * - si l'utilisateur vient d'un moteur de recherche connu (ou si ?var_pub=1 dans l'url : test-feature)
