@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin FairPub
+ * Plugin NoPub
  * Gestion de la publicite respectueuse
  * Distribue sous licence GPL
  *

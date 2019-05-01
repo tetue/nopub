@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin FairPub
+ * Plugin NoPub
  * Gestion de la publicite respectueuse
  * Distribue sous licence GPL
  *
@@ -21,7 +21,7 @@
  */
 
 $GLOBALS['var_pub'] = false;
-define('_FAIRPUB_ENGINES',',^https?://(www\.|fr\.)?(google|bing|ask|mysearchresults|search\.(yahoo\.|msn\.|live\.|aol\.|babylon\.|conduit\.|incredimail\.|free\.)|sfr\.fr\/recherche|isearch\.avg),i');
+define('_NOPUB_ENGINES',',^https?://(www\.|fr\.)?(google|bing|ask|mysearchresults|search\.(yahoo\.|msn\.|live\.|aol\.|babylon\.|conduit\.|incredimail\.|free\.)|sfr\.fr\/recherche|isearch\.avg),i');
 
 if (
 	_request('var_pub')
@@ -30,7 +30,7 @@ if (
 	AND (
 		isset($_COOKIE['var_pub'])
 		OR
-		preg_match(_FAIRPUB_ENGINES,$_SERVER['HTTP_REFERER'])
+		preg_match(_NOPUB_ENGINES,$_SERVER['HTTP_REFERER'])
 		)
 	)){
 	$GLOBALS['var_pub'] = true;
@@ -56,7 +56,7 @@ function balise_PUB_dist($p){
 	$_fond = interprete_argument_balise(1,$p);
 	$_titre = interprete_argument_balise(2,$p);
 	$p->code = "'<'.'?php if (\$GLOBALS[\'var_pub\']) { ?'.'>'";
-	$p->code .= ".fairpub_affiche_pub($_fond, $_titre)";
+	$p->code .= ".nopub_affiche_pub($_fond, $_titre)";
 	$p->code .= ".'<'.'?php } ?'.'>'";
 	$p->interdire_scripts = false;
 	return $p;
@@ -70,7 +70,7 @@ function balise_PUB_dist($p){
  * @param string $fond
  * @return string
  */
-function fairpub_affiche_pub($fond, $titre=""){
+function nopub_affiche_pub($fond, $titre=""){
 	$url_nopub = generer_url_action("nopub","",false,true);
 	$width = $height = "";
 	if (preg_match(",(\d+)(?:x(\d+))?$,",$fond,$m)){
@@ -88,7 +88,7 @@ function fairpub_affiche_pub($fond, $titre=""){
 		. recuperer_fond("pub/$fond")
 		. "</div>"
 		. "<small class=\"pub-link-nopub\"><a href=\"#\" onclick=\"jQuery('.pub').fadeOut();jQuery.get('$url_nopub');return false;\">"
-		. _T('fairpub:info_pas_de_pub_svp')
+		. _T('nopub:info_pas_de_pub_svp')
 	  . "</a></small>"
 		. "</div>";
 

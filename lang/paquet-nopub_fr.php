@@ -8,10 +8,10 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// F
-	'fairpub_description' => 'Inserer une publicit&eacute; qui respecte l\'utilisateurice&nbsp;:
-	- uniquement si il vient d\'un moteur de recherche,
+	'nopub_description' => 'Pour ne pas imposer les pubs aux utilisateurices, les encarts sont affichés&nbsp;:
+	- uniquement s\'il vient d\'un moteur de recherche,
 	- s\'il n\'est pas identifi&eacute;.
 	Un lien « Pas de pub s\'il vous pla&icirc;t ! » permet de desactiver la publicit&eacute; pour ne plus la voir.',
-	'fairpub_nom' => 'NoPub',
-	'fairpub_slogan' => 'Pas de pub s\'il vous plaît !'
+	'nopub_nom' => 'NoPub',
+	'nopub_slogan' => 'Pas de pub s\'il vous plaît !'
 );
