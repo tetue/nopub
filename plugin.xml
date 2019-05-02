@@ -8,11 +8,8 @@
 	<categorie>divers</categorie>
 
 	<slogan>Pas de pub s'il vous pla&icirc;t !</slogan>
-	<description>Inserer une publicit&eacute; qui respecte l'utilisateur :
-- uniquement si il vient d'un moteur de recherche
-- si il n'est pas identifi&eacute;
-	Un lien &laquo;&nbsp;Pas de pub s'il vous pla&icirc;t&nbsp;!&nbsp;&raquo; permet de desactiver la publicit&eacute; pour ne plus la voir.</description>
-	<auteur>Cedric, sur une idée de Tetue</auteur>
+	<description>Ins&eacute;rer une publicit&eacute; qui respecte l'utilisateurice, en l'affichant uniquement s'iel vient d'un moteur de recherche et s'iel n'est pas identifi&eacute;·e et en lui permettant de la désactiver via un bouton &laquo;&nbsp;Pas de pub s'il vous pla&icirc;t&nbsp;!&nbsp;&raquo;.</description>
+	<auteur>Cedric, [Tetue->http://spip.tetue.net]</auteur>
 	<licence>GPL 3</licence>
 
 	<options>nopub_options.php</options>
