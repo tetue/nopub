@@ -1,4 +1,4 @@
-# nopub
+# NoPub
 Pas de pub s'il vous plaît !
 
 ## WHY
