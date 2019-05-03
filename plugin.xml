@@ -9,6 +9,7 @@
 
 	<slogan>Pas de pub s'il vous pla&icirc;t !</slogan>
 	<description>Ins&eacute;rer une publicit&eacute; qui respecte l'utilisateurice, en l'affichant uniquement s'iel vient d'un moteur de recherche et s'iel n'est pas identifi&eacute;·e et en lui permettant de la désactiver via un bouton &laquo;&nbsp;Pas de pub s'il vous pla&icirc;t&nbsp;!&nbsp;&raquo;.</description>
+	<lien>https://github.com/tetue/nopub#readme</lien>
 	<auteur>Cedric, [Tetue->http://spip.tetue.net]</auteur>
 	<licence>GPL 3</licence>
 
